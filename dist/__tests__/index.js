@@ -40,41 +40,29 @@ var inversify_1 = require("inversify");
 var type_1 = require("../type");
 var EagletMailService_1 = require("EagletMailService");
 describe("Post", function () {
-    it("sparkpost", function () { return __awaiter(_this, void 0, void 0, function () {
-        var myContainer, mailConfig, mailService, err_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    myContainer = new inversify_1.Container();
-                    mailConfig = {
-                        transaction: {
-                            api: "6ca19d3a-aee4-447f-b3b7-ccd2b3983385",
-                            options: {
-                                sandbox: false
-                            }
-                        },
-                        from: "chungchi300@hotmail.com",
-                        type: "sparkpost"
-                    };
-                    myContainer.bind(type_1.default.mailConfig).toConstantValue(mailConfig);
-                    myContainer.bind(type_1.default.mailService).to(EagletMailService_1.EagletMailService);
-                    mailService = myContainer.get(type_1.default.mailService);
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, mailService.mail({ to: "jeff", html: "ddd", subject: "jeff" })];
-                case 2:
-                    _a.sent();
-                    expect(false).toBe(true);
-                    return [3 /*break*/, 4];
-                case 3:
-                    err_1 = _a.sent();
-                    expect(true).toBe(true);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
-            }
-        });
-    }); });
+    // it("sparkpost", async () => {
+    //   const myContainer = new Container();
+    //   let mailConfig: MailConfig = {
+    //     transaction: {
+    //       api: "6ca19d3a-aee4-447f-b3b7-ccd2b3983385",
+    //       options: {
+    //         sandbox: false
+    //       }
+    //     },
+    //     from: "chungchi300@hotmail.com",
+    //     type: "sparkpost"
+    //   };
+    //   myContainer.bind<MailConfig>(TYPE.mailConfig).toConstantValue(mailConfig);
+    //   myContainer.bind<MailService>(TYPE.mailService).to(EagletMailService);
+    //   const mailService = myContainer.get<MailService>(TYPE.mailService);
+    //   console.log()
+    //   try {
+    //     await mailService.mail({ to: "jeff", html: "ddd", subject: "jeff" });
+    //     expect(false).toBe(true);
+    //   } catch (err) {
+    //     expect(true).toBe(true);
+    //   }
+    // });
     it("log ", function () { return __awaiter(_this, void 0, void 0, function () {
         var myContainer, mailConfig, mailService;
         return __generator(this, function (_a) {
@@ -94,6 +82,7 @@ describe("Post", function () {
                     myContainer.bind(type_1.default.mailConfig).toConstantValue(mailConfig);
                     myContainer.bind(type_1.default.mailService).to(EagletMailService_1.EagletMailService);
                     mailService = myContainer.get(type_1.default.mailService);
+                    console.log("the mail service", mailService);
                     return [4 /*yield*/, mailService.mail({ to: "jeff", html: "ddd", subject: "jeff" })];
                 case 1:
                     _a.sent();
