@@ -1,6 +1,6 @@
 import { MailOption, MailConfig } from "../interface";
+import SparkPost from "sparkpost";
 export default async function(mailOptions: MailOption, mailConfig: MailConfig) {
-  const SparkPost = require("sparkpost");
   const client = new SparkPost(mailConfig.transaction.api);
   await client.transmissions.send({
     options: mailConfig.transaction.options,

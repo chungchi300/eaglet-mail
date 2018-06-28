@@ -4,4 +4,3 @@ exports.default = {
     mailConfig: "mailConfig",
     mailService: "mailService"
 };
-//# sourceMappingURL=type.js.map
