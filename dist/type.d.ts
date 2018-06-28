@@ -1,5 +1,5 @@
 declare const _default: {
-    mailConfig: string;
-    mailService: string;
+    mailConfig: symbol;
+    mailService: symbol;
 };
 export default _default;

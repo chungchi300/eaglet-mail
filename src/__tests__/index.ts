@@ -1,7 +1,7 @@
 import { Container } from "inversify";
 import { MailConfig, MailService } from "../interface";
 import TYPE from "../type";
-import { EagletMailService } from "EagletMailService";
+import { EagletMailService } from "../EagletMailService";
 describe("Post", () => {
   // it("sparkpost", async () => {
   //   const myContainer = new Container();
@@ -45,7 +45,9 @@ describe("Post", () => {
     myContainer.bind<MailService>(TYPE.mailService).to(EagletMailService);
 
     const mailService = myContainer.get<MailService>(TYPE.mailService);
-    console.log("the mail service", mailService);
+
+    // console.log("mail", Object.keys(mailService), mailService.mailConfig);
+    // console.log("the mail service", mailService);
     await mailService.mail({ to: "jeff", html: "ddd", subject: "jeff" });
   });
 });

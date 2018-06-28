@@ -11,5 +11,6 @@ export interface MailConfig {
     type: "log" | "sparkpost";
 }
 export interface MailService {
+    readonly mailConfig: MailConfig;
     mail: (mailOptions: MailOption) => Promise<any>;
 }

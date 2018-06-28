@@ -1,5 +1,5 @@
 export default {
-  mailConfig: "mailConfig",
+  mailConfig: Symbol("mailConfig"),
 
-  mailService: "mailService"
+  mailService: Symbol("mailService")
 };
