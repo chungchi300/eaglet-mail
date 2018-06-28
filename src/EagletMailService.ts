@@ -10,6 +10,7 @@ export class EagletMailService implements MailService {
   @inject(TYPE.mailConfig) mailConfig: MailConfig;
 
   async mail(mailOptions: MailOption) {
+    console.log("using current config", this.mailConfig);
     switch (this.mailConfig.type) {
       case "log":
         return await log(mailOptions, this.mailConfig);

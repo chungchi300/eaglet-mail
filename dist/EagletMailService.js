@@ -58,6 +58,7 @@ var EagletMailService = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        console.log("using current config", this.mailConfig);
                         _a = this.mailConfig.type;
                         switch (_a) {
                             case "log": return [3 /*break*/, 1];
