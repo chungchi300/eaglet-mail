@@ -1,6 +1,5 @@
-import { mailConfig } from "container";
-import { MailOptions } from "./interface";
-module.exports = async function(mailOptions: MailOptions) {
+import { MailOption, MailConfig } from "../interface";
+export default async function(mailOptions: MailOption, mailConfig: MailConfig) {
   const SparkPost = require("sparkpost");
   const client = new SparkPost(mailConfig.transaction.api);
   await client.transmissions.send({
@@ -15,4 +14,4 @@ module.exports = async function(mailOptions: MailOptions) {
     },
     recipients: [{ address: mailOptions.to }]
   });
-};
+}
